@@ -1,0 +1,32 @@
+
+Project workflow and then pseudocode is added below
+-------------------------------------------------------------------------------
+
+Create a few functions in javascript.js to get numerical inputs and operate on 
+them according to the user input operator... have these working in the console
+
+Write a function that will take user input numbers and operator and call one
+of the above functions
+
+Build the basic framework for the HTML needed for the site. Style it almost
+completely with CSS and make it look like an actual calculator with a color
+theme and intuitive layout
+
+Get back to writing functions in javascript.js to:
+    Get clicked buttons to show up in calculator display
+    Use clicked button inputs for calculator methods
+    Allow window to listen for buttons from keyboard (optional)
+
+Add a button for different color themes (optional)
+
+
+
+-------------------------------------------------------------------------------
+
+function sub, add, divide, mult:
+    take two inputs and operate on them respective to the user input
+    return the calculated value
+
+function operate :
+    perform functions above and display result
+    (this will run when pressed "=" or when adding 3 or more input variables)
