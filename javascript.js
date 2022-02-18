@@ -24,6 +24,11 @@ function powerOf (num1, num2) {
     return result = num1 ** num2;
 };
 
+function remainderOf (num1, num2) {
+
+    return result = num1 % num2;
+};
+
 function operate (num1, operator, num2) {
 
     let answer = operator(num1, num2);
