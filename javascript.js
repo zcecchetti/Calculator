@@ -23,6 +23,10 @@ function remainderOf (num1, num2) {
     return result = num1 % num2;
 };
 
+function negativeOf (num1) {
+    return result = 0 - num1;
+};
+
 function operate (num1, operator, num2) {
     let answer = operator(num1, num2);
     return answer;
