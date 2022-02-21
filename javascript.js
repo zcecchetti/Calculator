@@ -1,7 +1,7 @@
 // Functions to perform math
 
 function add (num1, num2) {
-    return result = num1 + num2;
+    return result = +num1 + +num2;
 };
 
 function subtract (num1, num2) {
@@ -30,7 +30,8 @@ function negativeOf (num1) {
 
 function operate (num1, operator, num2) {
     let answer = operator(num1, num2);
-    displayItems.textContent = answer;
+    numCounter = 1;
+    return answer;
 };
 
 // Populate selected button in display
@@ -107,21 +108,100 @@ function addDot() {
 function clearDisplay() {
 
     displayItems.textContent = "";
+    num1 = null;
+    num2 = null;
+    numCounter = 0;
 };
 
-numOne.addEventListener("click", addOne);
-numTwo.addEventListener("click", addTwo);
-numThree.addEventListener("click", addThree);
-numFour.addEventListener("click", addFour);
-numFive.addEventListener("click", addFive);
-numSix.addEventListener("click", addSix);
-numSeven.addEventListener("click", addSeven);
-numEight.addEventListener("click", addEight);
-numNine.addEventListener("click", addNine);
-numZero.addEventListener("click", addZero);
-numDot.addEventListener("click", addDot);
+numOne.addEventListener("click", () => {
+    addOne();
+    assignInput();
+});
+numTwo.addEventListener("click", () => {
+    addTwo();
+    assignInput();
+});
+numThree.addEventListener("click", () => {
+    addThree();
+    assignInput();
+});
+numFour.addEventListener("click", () => {
+    addFour();
+    assignInput();
+});
+numFive.addEventListener("click", () => {
+    addFive();
+    assignInput();
+});
+numSix.addEventListener("click", () => {
+    addSix();
+    assignInput();
+});
+numSeven.addEventListener("click", () => {
+    addSeven();
+    assignInput();
+});
+numEight.addEventListener("click", () => {
+    addEight();
+    assignInput();
+});
+numNine.addEventListener("click", () => {
+    addNine();
+    assignInput();
+});
+numZero.addEventListener("click", () =>{
+    addZero();
+    assignInput();
+});
+numDot.addEventListener("click", () => {
+    addDot();
+    assignInput();
+});
 clear.addEventListener("click", clearDisplay);
 
 // Perform math functions
 
+let num1 = null;
+let num2 = null;
+let numCounter = 0; // Determines when to combine num1 and num2
+let operator;
+
+function assignInput() {
+
+    if (numCounter === 0) {
+        num1 = displayItems.textContent;
+    } else {
+        num2 = displayItems.textContent;
+    };
+};
+
+function checkCounter() {
+
+    if (numCounter === 2) {
+        operate(num1, operator, num2);
+        numCounter = 1;
+    };
+};
+
+const plus = document.getElementById("plus");
+const minus = document.getElementById("minus");
+const product = document.getElementById("multiply");
+const division = document.getElementById("divide");
+const remainder = document.getElementById("remainder");
+const power = document.getElementById("power");
+const negate = document.getElementById("negative");
+
+plus.addEventListener("click", () => {
+    displayItems.textContent = "";
+    numCounter++;
+    operator = add;
+});
+
 const executeMath = document.getElementById("execute");
+
+executeMath.addEventListener("click", () => {
+
+    num1 = operate(num1, operator, num2);
+    num2 = null;
+    displayItems.textContent = num1;
+});
