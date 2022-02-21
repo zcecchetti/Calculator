@@ -52,57 +52,112 @@ const clear = document.getElementById("clear");
 
 function addOne() {
 
-    displayItems.textContent += "1";
+    if (operatorLastPushed === true) {
+        displayItems.textContent = "1";
+        operatorLastPushed = false;
+    } else {
+        displayItems.textContent += "1";
+    }
 };
 
 function addTwo() {
 
-    displayItems.textContent += "2";
+    if (operatorLastPushed === true) {
+        displayItems.textContent = "2";
+        operatorLastPushed = false;
+    } else {
+        displayItems.textContent += "2";
+    };
 };
 
 function addThree() {
 
-    displayItems.textContent += "3";
+    if (operatorLastPushed === true) {
+        displayItems.textContent = "3";
+        operatorLastPushed = false;
+    } else {
+        displayItems.textContent += "3";
+    };
 };
 
 function addFour() {
 
-    displayItems.textContent += "4";
+    if (operatorLastPushed === true) {
+        displayItems.textContent = "4";
+        operatorLastPushed = false;
+    } else {
+        displayItems.textContent += "4";
+    };
 };
 
 function addFive() {
 
-    displayItems.textContent += "5";
+    if (operatorLastPushed === true) {
+        displayItems.textContent = "5";
+        operatorLastPushed = false;
+    } else {
+        displayItems.textContent += "5";
+    };
 };
 
 function addSix() {
 
-    displayItems.textContent += "6";
+    if (operatorLastPushed === true) {
+        displayItems.textContent = "6";
+        operatorLastPushed = false;
+    } else {
+        displayItems.textContent += "6";
+    };
 };
 
 function addSeven() {
 
-    displayItems.textContent += "7";
+    if (operatorLastPushed === true) {
+        displayItems.textContent = "7";
+        operatorLastPushed = false;
+    } else {
+        displayItems.textContent += "7";
+    };
 };
 
 function addEight() {
 
-    displayItems.textContent += "8";
+    if (operatorLastPushed === true) {
+        displayItems.textContent = "8";
+        operatorLastPushed = false;
+    } else {
+        displayItems.textContent += "8";
+    };
 };
 
 function addNine() {
 
-    displayItems.textContent += "9";
+    if (operatorLastPushed === true) {
+        displayItems.textContent = "9";
+        operatorLastPushed = false;
+    } else {
+        displayItems.textContent += "9";
+    };
 };
 
 function addZero() {
 
-    displayItems.textContent += "0";
+    if (operatorLastPushed === true) {
+        displayItems.textContent = "0";
+        operatorLastPushed = false;
+    } else {
+        displayItems.textContent += "0";
+    };
 };
 
 function addDot() {
 
-    displayItems.textContent += ".";
+    if (operatorLastPushed === true) {
+        displayItems.textContent = ".";
+        operatorLastPushed = false;
+    } else {
+        displayItems.textContent += ".";
+    };
 };
 
 function clearDisplay() {
@@ -177,9 +232,13 @@ function assignInput() {
 
 function checkCounter() {
 
-    if (numCounter === 2) {
-        operate(num1, operator, num2);
+    if (numCounter === 1) {
+        num1 = operate(num1, operator, num2);
+        num2 = null;
+        displayItems.textContent = num1;
         numCounter = 1;
+    } else {
+        numCounter++;
     };
 };
 
@@ -191,10 +250,55 @@ const remainder = document.getElementById("remainder");
 const power = document.getElementById("power");
 const negate = document.getElementById("negative");
 
+let operatorLastPushed = false; // Tells whether the last button pressed by user was an operator or execute
+
 plus.addEventListener("click", () => {
-    displayItems.textContent = "";
-    numCounter++;
+    
+    checkCounter();
     operator = add;
+    operatorLastPushed = true;
+});
+
+minus.addEventListener("click", () => {
+    
+    checkCounter();
+    operator = subtract;
+    operatorLastPushed = true;
+});
+
+product.addEventListener("click", () => {
+    
+    checkCounter();
+    operator = multiply;
+    operatorLastPushed = true;
+});
+
+division.addEventListener("click", () => {
+    
+    checkCounter();
+    operator = divide;
+    operatorLastPushed = true;
+});
+
+power.addEventListener("click", () => {
+    
+    checkCounter();
+    operator = powerOf;
+    operatorLastPushed = true;
+});
+
+remainder.addEventListener("click", () => {
+    
+    checkCounter();
+    operator = remainderOf;
+    operatorLastPushed = true;
+});
+
+negate.addEventListener("click", () => {
+    
+    checkCounter();
+    operator = negativeOf;
+    operatorLastPushed = true;
 });
 
 const executeMath = document.getElementById("execute");
