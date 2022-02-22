@@ -1,7 +1,7 @@
 // Functions to perform math
 
 function add (num1, num2) {
-    return result = +num1 + +num2;
+    return result = +`${num1}` + +`${num2}`;
 };
 
 function subtract (num1, num2) {
@@ -29,8 +29,19 @@ function negativeOf (num1) {
 };
 
 function operate (num1, operator, num2) {
+
+    if (operator == null) {
+        operator = add;
+    };
+    if (num2 == null) {
+        num2 = 0;
+    };
     let answer = operator(num1, num2);
     numCounter = 1;
+    operatorLastPushed = true;
+    if (answer == null || answer === Infinity || isNaN(answer)) {
+        answer = "ERROR";
+    };
     return answer;
 };
 
@@ -235,8 +246,6 @@ function checkCounter() {
     if (numCounter === 1) {
         num1 = operate(num1, operator, num2);
         num2 = null;
-        displayItems.textContent = num1;
-        numCounter = 1;
     } else {
         numCounter++;
     };
@@ -309,3 +318,4 @@ executeMath.addEventListener("click", () => {
     num2 = null;
     displayItems.textContent = num1;
 });
+
