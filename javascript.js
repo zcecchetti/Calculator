@@ -163,12 +163,21 @@ function addZero() {
 
 function addDot() {
 
+    let isDotPreset = dotPresent();
+    if (isDotPreset === true) {
+        return;
+    };
     if (operatorLastPushed === true) {
         displayItems.textContent = ".";
         operatorLastPushed = false;
     } else {
         displayItems.textContent += ".";
     };
+};
+
+function dotPresent() {
+
+    return displayItems.textContent.includes(".");
 };
 
 function clearDisplay() {
