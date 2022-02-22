@@ -43,10 +43,11 @@ function operate (num1, operator, num2) {
         answer = "ERROR";
     };
 
-    let bigAnswer = limitLength(answer);
-    if (bigAnswer) {
+    let answerString = answer.toString();
+    if (answerString.length > 13) {
+        let bigAnswer = limitLength(answer);
         return bigAnswer;
-    }
+    };
 
     return answer;
 };
@@ -173,8 +174,8 @@ function addDot() {
     if (isDotPreset === true) {
         return;
     };
-    if (operatorLastPushed === true) {
-        displayItems.textContent = ".";
+    if (operatorLastPushed === true || displayItems.textContent === "0") {
+        displayItems.textContent = "0.";
         operatorLastPushed = false;
     } else {
         displayItems.textContent += ".";
@@ -341,17 +342,11 @@ executeMath.addEventListener("click", () => {
     numCounter--;
 });
 
-// Limit length of answer populated in display
+// Limit length of answer populated in display and limit number of decimal places
 
 function limitLength(answer) {
 
-    answerString = answer.toString();
-    if (answerString.length >= 14) {
-
-        bigAnswer = Number.parseFloat(answer).toExponential(5);
-        //console.log(bigAnswer);
-        return bigAnswer;
-
-    };
-};
-
+    let newLength = Number.parseFloat(answer).toExponential(7);
+    newLength *= 1; // Convert string to number
+    return parseFloat(newLength.toFixed(100)); // .toFixed(100) limits smallest number to around 1 x 10^(-100)
+};  
