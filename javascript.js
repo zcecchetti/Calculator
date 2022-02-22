@@ -173,7 +173,7 @@ function addDot() {
 
 function clearDisplay() {
 
-    displayItems.textContent = "";
+    displayItems.textContent = "0";
     num1 = null;
     num2 = null;
     numCounter = 0;
@@ -235,17 +235,20 @@ let operator;
 function assignInput() {
 
     if (numCounter === 0) {
-        num1 = displayItems.textContent;
+        num1 = Number(displayItems.textContent);
     } else {
-        num2 = displayItems.textContent;
-    };
+        num2 = Number(displayItems.textContent);
+    }
 };
 
 function checkCounter() {
 
     if (numCounter === 1) {
-        num1 = operate(num1, operator, num2);
         num2 = null;
+        numCounter++;
+    } else if (numCounter === 2) {
+        num1 = operate(num1, operator, num2);
+        displayItems.textContent = num1;
     } else {
         numCounter++;
     };
@@ -303,19 +306,23 @@ remainder.addEventListener("click", () => {
     operatorLastPushed = true;
 });
 
+/*
+
+THIS FUNCTION WILL NEED TO BE PERFORMED WITHOUT THE USE OF OPERATE SO THAT IT
+CAN BE ACCESSIBLE AT ANY POINT
 negate.addEventListener("click", () => {
     
     checkCounter();
     operator = negativeOf;
     operatorLastPushed = true;
 });
+*/
 
 const executeMath = document.getElementById("execute");
 
 executeMath.addEventListener("click", () => {
 
     num1 = operate(num1, operator, num2);
-    num2 = null;
     displayItems.textContent = num1;
 });
 
