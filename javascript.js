@@ -318,17 +318,12 @@ remainder.addEventListener("click", () => {
     operatorLastPushed = true;
 });
 
-/*
-
-THIS FUNCTION WILL NEED TO BE PERFORMED WITHOUT THE USE OF OPERATE SO THAT IT
-CAN BE ACCESSIBLE AT ANY POINT
 negate.addEventListener("click", () => {
     
-    checkCounter();
-    operator = negativeOf;
+    let tempNum = negativeOf(displayItems.textContent);
+    displayItems.textContent = tempNum;
     operatorLastPushed = true;
 });
-*/
 
 const executeMath = document.getElementById("execute");
 
