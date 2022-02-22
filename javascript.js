@@ -63,7 +63,7 @@ const clear = document.getElementById("clear");
 
 function addOne() {
 
-    if (operatorLastPushed === true) {
+    if (operatorLastPushed === true || displayItems.textContent === "0") {
         displayItems.textContent = "1";
         operatorLastPushed = false;
     } else {
@@ -73,7 +73,7 @@ function addOne() {
 
 function addTwo() {
 
-    if (operatorLastPushed === true) {
+    if (operatorLastPushed === true || displayItems.textContent === "0") {
         displayItems.textContent = "2";
         operatorLastPushed = false;
     } else {
@@ -83,7 +83,7 @@ function addTwo() {
 
 function addThree() {
 
-    if (operatorLastPushed === true) {
+    if (operatorLastPushed === true || displayItems.textContent === "0") {
         displayItems.textContent = "3";
         operatorLastPushed = false;
     } else {
@@ -93,7 +93,7 @@ function addThree() {
 
 function addFour() {
 
-    if (operatorLastPushed === true) {
+    if (operatorLastPushed === true || displayItems.textContent === "0") {
         displayItems.textContent = "4";
         operatorLastPushed = false;
     } else {
@@ -103,7 +103,7 @@ function addFour() {
 
 function addFive() {
 
-    if (operatorLastPushed === true) {
+    if (operatorLastPushed === true || displayItems.textContent === "0") {
         displayItems.textContent = "5";
         operatorLastPushed = false;
     } else {
@@ -113,7 +113,7 @@ function addFive() {
 
 function addSix() {
 
-    if (operatorLastPushed === true) {
+    if (operatorLastPushed === true || displayItems.textContent === "0") {
         displayItems.textContent = "6";
         operatorLastPushed = false;
     } else {
@@ -123,7 +123,7 @@ function addSix() {
 
 function addSeven() {
 
-    if (operatorLastPushed === true) {
+    if (operatorLastPushed === true || displayItems.textContent === "0") {
         displayItems.textContent = "7";
         operatorLastPushed = false;
     } else {
@@ -133,7 +133,7 @@ function addSeven() {
 
 function addEight() {
 
-    if (operatorLastPushed === true) {
+    if (operatorLastPushed === true || displayItems.textContent === "0") {
         displayItems.textContent = "8";
         operatorLastPushed = false;
     } else {
@@ -143,7 +143,7 @@ function addEight() {
 
 function addNine() {
 
-    if (operatorLastPushed === true) {
+    if (operatorLastPushed === true || displayItems.textContent === "0") {
         displayItems.textContent = "9";
         operatorLastPushed = false;
     } else {
@@ -153,7 +153,7 @@ function addNine() {
 
 function addZero() {
 
-    if (operatorLastPushed === true) {
+    if (operatorLastPushed === true || displayItems.textContent === "0") {
         displayItems.textContent = "0";
         operatorLastPushed = false;
     } else {
@@ -322,6 +322,7 @@ negate.addEventListener("click", () => {
     
     let tempNum = negativeOf(displayItems.textContent);
     displayItems.textContent = tempNum;
+    assignInput();
     operatorLastPushed = true;
 });
 
@@ -331,5 +332,6 @@ executeMath.addEventListener("click", () => {
 
     num1 = operate(num1, operator, num2);
     displayItems.textContent = num1;
+    numCounter--;
 });
 
