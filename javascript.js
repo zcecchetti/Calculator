@@ -245,12 +245,9 @@ function checkCounter() {
 
     if (numCounter === 1) {
         num2 = null;
-        numCounter++;
     } else if (numCounter === 2) {
         num1 = operate(num1, operator, num2);
         displayItems.textContent = num1;
-    } else {
-        numCounter++;
     };
 };
 
@@ -266,6 +263,7 @@ let operatorLastPushed = false; // Tells whether the last button pressed by user
 
 plus.addEventListener("click", () => {
     
+    numCounter++;
     checkCounter();
     operator = add;
     operatorLastPushed = true;
@@ -273,6 +271,7 @@ plus.addEventListener("click", () => {
 
 minus.addEventListener("click", () => {
     
+    numCounter++;
     checkCounter();
     operator = subtract;
     operatorLastPushed = true;
@@ -280,6 +279,7 @@ minus.addEventListener("click", () => {
 
 product.addEventListener("click", () => {
     
+    numCounter++;
     checkCounter();
     operator = multiply;
     operatorLastPushed = true;
@@ -287,6 +287,7 @@ product.addEventListener("click", () => {
 
 division.addEventListener("click", () => {
     
+    numCounter++;
     checkCounter();
     operator = divide;
     operatorLastPushed = true;
@@ -294,6 +295,7 @@ division.addEventListener("click", () => {
 
 power.addEventListener("click", () => {
     
+    numCounter++;
     checkCounter();
     operator = powerOf;
     operatorLastPushed = true;
@@ -301,6 +303,7 @@ power.addEventListener("click", () => {
 
 remainder.addEventListener("click", () => {
     
+    numCounter++;
     checkCounter();
     operator = remainderOf;
     operatorLastPushed = true;
