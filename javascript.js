@@ -184,7 +184,11 @@ function addDot() {
 
 function dotPresent() {
 
-    return displayItems.textContent.includes(".");
+    if (operatorLastPushed === false) {
+        return displayItems.textContent.includes(".");
+    } else {
+        return;
+    };
 };
 
 function clearDisplay() {
