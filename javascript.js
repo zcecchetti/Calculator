@@ -191,59 +191,89 @@ function dotPresent() {
     };
 };
 
+// Pressing clear once will clear current input, pressing twice will reset calculator
+
+let clearCounter = 0;
+
 function clearDisplay() {
 
     displayItems.textContent = "0";
     num1 = null;
     num2 = null;
     numCounter = 0;
+    clearCounter = 0;
 };
+
+function clearEntry() {
+
+    displayItems.textContent = "0";
+    assignInput();
+    clearCounter = 1;
+}
 
 numOne.addEventListener("click", () => {
     addOne();
     assignInput();
+    clearCounter = 0;
 });
 numTwo.addEventListener("click", () => {
     addTwo();
     assignInput();
+    clearCounter = 0;
 });
 numThree.addEventListener("click", () => {
     addThree();
     assignInput();
+    clearCounter = 0;
 });
 numFour.addEventListener("click", () => {
     addFour();
     assignInput();
+    clearCounter = 0;
 });
 numFive.addEventListener("click", () => {
     addFive();
     assignInput();
+    clearCounter = 0;
 });
 numSix.addEventListener("click", () => {
     addSix();
     assignInput();
+    clearCounter = 0;
 });
 numSeven.addEventListener("click", () => {
     addSeven();
     assignInput();
+    clearCounter = 0;
 });
 numEight.addEventListener("click", () => {
     addEight();
     assignInput();
+    clearCounter = 0;
 });
 numNine.addEventListener("click", () => {
     addNine();
     assignInput();
+    clearCounter = 0;
 });
 numZero.addEventListener("click", () =>{
     addZero();
     assignInput();
+    clearCounter = 0;
 });
 numDot.addEventListener("click", () => {
     addDot();
     assignInput();
+    clearCounter = 0;
 });
-clear.addEventListener("click", clearDisplay);
+clear.addEventListener("click", () => {
+
+    if (clearCounter === 1) {
+        clearDisplay()
+    } else {
+        clearEntry();
+    };
+});
 
 // Perform math functions
 
@@ -287,6 +317,7 @@ plus.addEventListener("click", () => {
     checkCounter();
     operator = add;
     operatorLastPushed = true;
+    clearCounter = 0;
 });
 
 minus.addEventListener("click", () => {
@@ -295,6 +326,7 @@ minus.addEventListener("click", () => {
     checkCounter();
     operator = subtract;
     operatorLastPushed = true;
+    clearCounter = 0;
 });
 
 product.addEventListener("click", () => {
@@ -303,6 +335,7 @@ product.addEventListener("click", () => {
     checkCounter();
     operator = multiply;
     operatorLastPushed = true;
+    clearCounter = 0;
 });
 
 division.addEventListener("click", () => {
@@ -311,6 +344,7 @@ division.addEventListener("click", () => {
     checkCounter();
     operator = divide;
     operatorLastPushed = true;
+    clearCounter = 0;
 });
 
 power.addEventListener("click", () => {
@@ -319,6 +353,7 @@ power.addEventListener("click", () => {
     checkCounter();
     operator = powerOf;
     operatorLastPushed = true;
+    clearCounter = 0;
 });
 
 remainder.addEventListener("click", () => {
@@ -327,6 +362,7 @@ remainder.addEventListener("click", () => {
     checkCounter();
     operator = remainderOf;
     operatorLastPushed = true;
+    clearCounter = 0;
 });
 
 negate.addEventListener("click", () => {
@@ -335,6 +371,7 @@ negate.addEventListener("click", () => {
     displayItems.textContent = tempNum;
     assignInput();
     operatorLastPushed = true;
+    clearCounter = 0;
 });
 
 const executeMath = document.getElementById("execute");
@@ -344,6 +381,7 @@ executeMath.addEventListener("click", () => {
     num1 = operate(num1, operator, num2);
     displayItems.textContent = num1;
     numCounter--;
+    clearCounter = 0;
 });
 
 // Limit length of answer populated in display and limit number of decimal places
