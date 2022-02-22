@@ -42,6 +42,12 @@ function operate (num1, operator, num2) {
     if (answer == null || answer === Infinity || isNaN(answer)) {
         answer = "ERROR";
     };
+
+    let bigAnswer = limitLength(answer);
+    if (bigAnswer) {
+        return bigAnswer;
+    }
+
     return answer;
 };
 
@@ -334,4 +340,18 @@ executeMath.addEventListener("click", () => {
     displayItems.textContent = num1;
     numCounter--;
 });
+
+// Limit length of answer populated in display
+
+function limitLength(answer) {
+
+    answerString = answer.toString();
+    if (answerString.length >= 14) {
+
+        bigAnswer = Number.parseFloat(answer).toExponential(5);
+        //console.log(bigAnswer);
+        return bigAnswer;
+
+    };
+};
 
