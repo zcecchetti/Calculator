@@ -44,7 +44,7 @@ function operate (num1, operator, num2) {
     };
 
     let answerString = answer.toString();
-    if (answerString.length > 13) {
+    if (answerString.length > 6) {
         let bigAnswer = limitLength(answer);
         return bigAnswer;
     };
@@ -387,8 +387,113 @@ executeMath.addEventListener("click", () => {
 // Limit length of answer populated in display and limit number of decimal places
 
 function limitLength(answer) {
-
-    let newLength = Number.parseFloat(answer).toExponential(7);
+    
+    let newLength = answer.toExponential();
     newLength *= 1; // Convert string to number
     return parseFloat(newLength.toFixed(100)); // .toFixed(100) limits smallest number to around 1 x 10^(-100)
 };  
+
+// Add keyboard support
+
+window.addEventListener("keydown", function(e) {
+
+    if (e.key === "1") {
+        addOne();
+        assignInput();
+        clearCounter = 0;
+    } else if (e.key === "2") {
+        addTwo();
+        assignInput();
+        clearCounter = 0;
+    } else if (e.key === "3") {
+        addThree();
+        assignInput();
+        clearCounter = 0;
+    } else if (e.key === "4") {
+        addFour();
+        assignInput();
+        clearCounter = 0;
+    } else if (e.key === "5") {
+        addFive();
+        assignInput();
+        clearCounter = 0;
+    } else if (e.key === "6 ") {
+        addSix();
+        assignInput();
+        clearCounter = 0;
+    } else if (e.key === "7") {
+        addSeven();
+        assignInput();
+        clearCounter = 0;
+    } else if (e.key === "8") {
+        addEight();
+        assignInput();
+        clearCounter = 0;
+    } else if (e.key === "9") {
+        addNine();
+        assignInput();
+        clearCounter = 0;
+    } else if (e.key === "0") {
+        addZero();
+        assignInput();
+        clearCounter = 0;
+    } else if (e.key === ".") {
+        addDot();
+        assignInput();
+        clearCounter = 0;
+    } else if (e.key === "+") {
+        numCounter++;
+        checkCounter();
+        operator = add;
+        operatorLastPushed = true;
+        clearCounter = 0;
+    } else if (e.key === "-") {
+        numCounter++;
+        checkCounter();
+        operator = subtract;
+        operatorLastPushed = true;
+        clearCounter = 0;
+    } else if (e.key === "*") {
+        numCounter++;
+        checkCounter();
+        operator = multiply;
+        operatorLastPushed = true;
+        clearCounter = 0;
+    } else if (e.key === "/") {
+        numCounter++;
+        checkCounter();
+        operator = divide;
+        operatorLastPushed = true;
+        clearCounter = 0;
+    } else if (e.key === "%") {
+        numCounter++;
+        checkCounter();
+        operator = remainderOf;
+        operatorLastPushed = true;
+        clearCounter = 0;
+    } else if (e.key === "^") {
+        numCounter++;
+        checkCounter();
+        operator = powerOf;
+        operatorLastPushed = true;
+        clearCounter = 0;
+    } else if (e.key === "_") {
+        numCounter++;
+        checkCounter();
+        operator = negativeOf;
+        operatorLastPushed = true;
+        clearCounter = 0;
+    } else if (e.key === "Enter") {
+        num1 = operate(num1, operator, num2);
+        displayItems.textContent = num1;
+        numCounter--;
+        clearCounter = 0;
+    } else if (e.key === "Backspace") {
+        if (clearCounter === 1) {
+            clearDisplay()
+        } else {
+            clearEntry();
+        };
+    };
+    console.log(e.key);
+});
