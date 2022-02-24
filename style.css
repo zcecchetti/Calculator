@@ -47,7 +47,7 @@ a {
     justify-content: center;
     gap: 16px;
     padding: 18px 12px;
-    width: 400px;
+    width: 600px;
     background-color: #5465FF;
     border-radius: 4px;
 }
@@ -83,17 +83,20 @@ button:active {
 
     outline: 2px solid #E2FDFF;
 }
+.pressed {
+
+    outline: 2px solid #E2FDFF;
+}
 
 #display {
 
     height: 60px;
-    width: 400px;
+    width: 600px;
     background-color: #E2FDFF;
     display: flex;
     border-radius: 10px;
     justify-content: flex-end;
     align-items: center;
-    font-size: 48px;
 
 }
 
@@ -123,4 +126,5 @@ button:active {
 
     padding: 0 8px;
     display: flex;
+    font-size: 48px;
 }

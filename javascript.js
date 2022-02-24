@@ -402,99 +402,197 @@ window.addEventListener("keydown", function(e) {
         addOne();
         assignInput();
         clearCounter = 0;
+        let highlight = document.getElementById("1");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "2") {
         addTwo();
         assignInput();
         clearCounter = 0;
+        let highlight = document.getElementById("2");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "3") {
         addThree();
         assignInput();
         clearCounter = 0;
+        let highlight = document.getElementById("3");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "4") {
         addFour();
         assignInput();
         clearCounter = 0;
+        let highlight = document.getElementById("4");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "5") {
         addFive();
         assignInput();
-        clearCounter = 0;
-    } else if (e.key === "6 ") {
+        clearCounter = 0;let highlight = document.getElementById("5");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
+    } else if (e.key === "6") {
         addSix();
         assignInput();
         clearCounter = 0;
+        let highlight = document.getElementById("6");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "7") {
         addSeven();
         assignInput();
         clearCounter = 0;
+        let highlight = document.getElementById("7");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "8") {
         addEight();
         assignInput();
         clearCounter = 0;
+        let highlight = document.getElementById("8");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "9") {
         addNine();
         assignInput();
         clearCounter = 0;
+        let highlight = document.getElementById("9");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "0") {
         addZero();
         assignInput();
         clearCounter = 0;
+        let highlight = document.getElementById("0");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === ".") {
         addDot();
         assignInput();
         clearCounter = 0;
+        let highlight = document.getElementById("dot");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "+") {
         numCounter++;
         checkCounter();
         operator = add;
         operatorLastPushed = true;
         clearCounter = 0;
+        let highlight = document.getElementById("plus");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "-") {
         numCounter++;
         checkCounter();
         operator = subtract;
         operatorLastPushed = true;
         clearCounter = 0;
+        let highlight = document.getElementById("minus");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "*") {
         numCounter++;
         checkCounter();
         operator = multiply;
         operatorLastPushed = true;
         clearCounter = 0;
+        let highlight = document.getElementById("multiply");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "/") {
         numCounter++;
         checkCounter();
         operator = divide;
         operatorLastPushed = true;
         clearCounter = 0;
+        let highlight = document.getElementById("divide");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "%") {
         numCounter++;
         checkCounter();
         operator = remainderOf;
         operatorLastPushed = true;
         clearCounter = 0;
+        let highlight = document.getElementById("remainder");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "^") {
         numCounter++;
         checkCounter();
         operator = powerOf;
         operatorLastPushed = true;
         clearCounter = 0;
+        let highlight = document.getElementById("power");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "_") {
         numCounter++;
         checkCounter();
         operator = negativeOf;
         operatorLastPushed = true;
         clearCounter = 0;
+        let highlight = document.getElementById("negative");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "Enter") {
         num1 = operate(num1, operator, num2);
         displayItems.textContent = num1;
         numCounter--;
         clearCounter = 0;
+        let highlight = document.getElementById("execute");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     } else if (e.key === "Backspace") {
         if (clearCounter === 1) {
             clearDisplay()
         } else {
             clearEntry();
         };
+        let highlight = document.getElementById("clear");
+        highlight.classList.add("pressed");
+        this.window.addEventListener("keyup", () => {
+            highlight.classList.remove("pressed");
+        });
     };
-    console.log(e.key);
 });
