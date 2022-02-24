@@ -69,7 +69,7 @@ button {
     align-items: center;
     border-radius: 10px;
     margin: 0;
-    padding: 0;
+    padding: 0 0 2px 0;
     border: 0;
     user-select: none;
 }
