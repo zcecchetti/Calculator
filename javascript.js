@@ -44,7 +44,7 @@ function operate (num1, operator, num2) {
     };
 
     let answerString = answer.toString();
-    if (answerString.length > 6) {
+    if (answerString.length > 8) {
         let bigAnswer = limitLength(answer);
         return bigAnswer;
     };
@@ -200,6 +200,7 @@ function clearDisplay() {
     displayItems.textContent = "0";
     num1 = null;
     num2 = null;
+    operator = null;
     numCounter = 0;
     clearCounter = 0;
 };
@@ -388,9 +389,9 @@ executeMath.addEventListener("click", () => {
 
 function limitLength(answer) {
     
-    let newLength = answer.toExponential();
-    newLength *= 1; // Convert string to number
-    return parseFloat(newLength.toFixed(100)); // .toFixed(100) limits smallest number to around 1 x 10^(-100)
+    let newLength = answer.toExponential(5);
+    newLength *= 1;
+    return newLength;
 };  
 
 // Add keyboard support

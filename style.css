@@ -122,4 +122,5 @@ button:active {
 #displayItems {
 
     padding: 0 8px;
+    display: flex;
 }
